@@ -1,0 +1,25 @@
+_schema-version: "3.2"
+ID: SplitApp
+version: 1.0.0
+description: A simple CAP project.
+
+modules:
+  - name: SplitApp
+    type: nodejs
+    path: .
+    requires:
+      - name: SplitApp-db
+      - name: SplitApp-xsuaa
+
+resources:
+  - name: SplitApp-db
+    type: com.sap.xs.hana
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  - name: SplitApp-xsuaa
+    type: com.sap.xs.uaa
+    parameters:
+      config:
+        xsappname: SplitApp
