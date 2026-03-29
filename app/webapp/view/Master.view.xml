@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+    controllerName="com.myorg.myapp.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Master Page">
+        <content>
+            <List id="masterList" items="{path: '/items'}">
+                <StandardListItem title="{name}" type="Navigation" press="onNavToDetail" />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

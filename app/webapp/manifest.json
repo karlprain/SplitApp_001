@@ -1,0 +1,83 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "com.myorg.myapp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "Master Detail Application",
+        "description": "A simple Master Detail application",
+        "dataSources": {
+            "mainService": {
+                "uri": "/service/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "favicon.ico"
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "com.myorg.myapp.view.Master",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "": {
+                "dataSource": "mainService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.myorg.myapp.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "Master",
+                    "target": "Master"
+                },
+                {
+                    "pattern": "detail/{itemPath}",
+                    "name": "Detail",
+                    "target": "Detail"
+                }
+            ],
+            "targets": {
+                "Master": {
+                    "viewName": "Master",
+                    "viewLevel": 1
+                },
+                "Detail": {
+                    "viewName": "Detail",
+                    "viewLevel": 2
+                }
+            }
+        }
+    }
+}

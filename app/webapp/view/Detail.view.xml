@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+    controllerName="com.myorg.myapp.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Detail Page" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <Text text="{name}" />
+        </content>
+    </Page>
+</mvc:View>
