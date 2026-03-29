@@ -8,7 +8,12 @@
             "version": "1.0.0"
         },
         "title": "Master Detail Application",
-        "description": "A sample Master Detail application with product listing"
+        "description": "A sample Master Detail application with product listing",
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.22.0",
+            "toolsId": "532d3a8d-40c3-4274-a210-2d0194bb0b03"
+        }
     },
     "sap.ui": {
         "technology": "UI5",
