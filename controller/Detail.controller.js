@@ -1,20 +1,19 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
-    "sap/ui/core/routing/History",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, UIComponent, History, JSONModel) {
+    "sap/ui/core/routing/History"
+], function (Controller, UIComponent, History) {
     "use strict";
 
     return Controller.extend("com.myorg.myapp.controller.Detail", {
         
         onInit: function () {
+            const oComponent = UIComponent.getRouterFor(this).getOwnerComponent();
+            const oModel = oComponent.getModel();
+            this.getView().setModel(oModel);
+            
             const oRouter = UIComponent.getRouterFor(this);
             oRouter.getRoute("Detail").attachPatternMatched(this._onRouteMatched, this);
-            
-            if (!this.getView().getModel()) {
-                this.getView().setModel(new JSONModel(), "view");
-            }
         },
 
         _onRouteMatched: function (oEvent) {

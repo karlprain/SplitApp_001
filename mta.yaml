@@ -11,6 +11,12 @@ modules:
       - name: SplitApp-db
       - name: SplitApp-xsuaa
 
+  - name: SplitApp-ui
+    type: com.sap.ui
+    path: app/webapp
+    requires:
+      - name: SplitApp-xsuaa
+
 resources:
   - name: SplitApp-db
     type: com.sap.xs.hana

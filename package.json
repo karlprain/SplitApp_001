@@ -7,7 +7,7 @@
         "@sap-cloud-sdk/http-client": "^4.5.1",
         "@sap-cloud-sdk/util": "^4.5.1",
         "@sap/cds": "^9",
-        "@sap/low-code-event-handler": "^1.2.5",
+        "@sap/low-code-event-handler": "^1.2.2",
         "@sap/xsenv": ">=3.3.2 <3.3.3",
         "@sap/xssec": "^4.13.0",
         "express": "^4",
@@ -21,8 +21,9 @@
     "scripts": {
         "start": "cds-serve",
         "start-local": "npm run generate-entry-point && npm run cds-watch",
+        "start-local-no-gen": "npm run cds-watch",
         "generate-entry-point": "dev-cap-tools gen-entrypoint",
-        "cds-watch": "cds watch --open"
+        "cds-watch": "cds-serve"
     },
     "private": true,
     "cds": {

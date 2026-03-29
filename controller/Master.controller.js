@@ -1,17 +1,20 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, UIComponent, JSONModel) {
+    "sap/ui/core/UIComponent"
+], function (Controller, UIComponent) {
     "use strict";
 
     return Controller.extend("com.myorg.myapp.controller.Master", {
         
         onInit: function () {
-            const oModel = this.getView().getModel();
-            if (!oModel) {
-                this.getView().setModel(new JSONModel(), "view");
-            }
+            // Get the component's model (set in Component.js)
+            const oComponent = UIComponent.getRouterFor(this).getOwnerComponent();
+            const oModel = oComponent.getModel();
+            
+            // Attach the component's model to this view
+            this.getView().setModel(oModel);
+            
+            // Load product data
             this._loadProducts();
         },
 
